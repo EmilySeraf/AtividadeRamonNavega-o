@@ -41,7 +41,6 @@ const App = () => {
             <TouchableOpacity
               key={index}
               style={[styles.button, activeButton === `${rowIndex}-${index}` && styles.shadow]}
-              // onpress é usado para if-else ternario com operador condicional
               onPress={() => 
                 value === 'C' ? clearInput() :
                 value === '=' ? calculateResult() :

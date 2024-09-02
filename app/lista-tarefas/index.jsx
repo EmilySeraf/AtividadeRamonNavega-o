@@ -1,26 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'Arrumar a cama',
+    title: 'Ir no dentista',
     completed: false,
+    date: '2024-08-13', 
   },
   {
     id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Tomar café',
+    title: 'Levar a Maya no PET',
     completed: false,
+    date: '2024-08-14', 
   },
   {
     id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Ir para academia',
+    title: 'Fazer prova TOIC',
     completed: false,
+    date: '2024-08-15', 
   },
   {
     id: '58794a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Tomar banho',
+    title: 'Pintar a unha',
     completed: false,
+    date: '2024-08-15', 
   },
 ];
 
@@ -33,6 +37,19 @@ const Item = ({ item, onPress, backgroundColor, textColor, textDecoration }) => 
 const App = () => {
   const [tasks, setTasks] = useState(DATA);
 
+  useEffect(() => {
+    const markOldTasksAsCompleted = () => {
+      const today = new Date().toISOString().split('T')[0]; 
+      setTasks(tasks.map(task =>
+        new Date(task.date) < new Date(today)
+          ? { ...task, completed: true }
+          : task
+      ));
+    };
+
+    markOldTasksAsCompleted();
+  }, []);
+
   const toggleCompletion = (id) => {
     setTasks(tasks.map(task =>
       task.id === id
@@ -42,8 +59,8 @@ const App = () => {
   };
 
   const renderItem = ({ item }) => {
-    const backgroundColor = item.completed ? '#d3ffd3' : '#f9c2ff';
-    const color = item.completed ? 'gray' : 'black';
+    const backgroundColor = item.completed ? '#ffb5a7' : '#fcd5ce';
+    const color = item.completed ? 'black' : 'black';
     const textDecoration = item.completed ? 'line-through' : 'none';
 
     return (
