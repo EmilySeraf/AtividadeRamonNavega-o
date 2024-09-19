@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Text } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
+import { Link } from 'expo-router';
 
 const SplashScreen = () => {
     return (
@@ -9,13 +10,14 @@ const SplashScreen = () => {
         colors={['#FFFFFF', '#990000']}
         style={styles.container}
     >
+        
           <Image
                     source={{
                         uri: 'https://seeklogo.com/images/P/pinterest-logo-CCDD2FE1E8-seeklogo.com.png',
                     }}
                     style={styles.image}
                 />
-        
+
         </LinearGradient>
     );
 };
