@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     filmeContainer: {
-        alignItems: 'center', // Centraliza o conteúdo
+        alignItems: 'center', 
         marginVertical: 10,
         backgroundColor: '#ffffff',
         padding: 10,
@@ -67,13 +67,13 @@ const styles = StyleSheet.create({
         width: 400,
         height: 230,
         borderRadius: 5,
-        marginTop: 10, // Espaçamento entre o título e a imagem
+        marginTop: 10, 
     },
     filmeTitulo: {
         fontSize: 16,
         fontWeight: 'bold',
         color: '#333',
-        textAlign: 'center', // Centraliza o texto
+        textAlign: 'center', 
     },
 });
 

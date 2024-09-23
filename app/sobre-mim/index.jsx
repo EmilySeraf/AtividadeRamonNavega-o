@@ -31,9 +31,11 @@ const SobreMim = () => {
                     <Text style={styles.buttonText}>Filmes</Text>
                 </TouchableOpacity>
                 </Link>
+                <Link href="/sobre-mim/Tela2">
                 <TouchableOpacity style={styles.button} onPress={() => handlePress('Comidas')}>
                     <Text style={styles.buttonText}>Comidas</Text>
                 </TouchableOpacity>
+                </Link>
             </View>
         </View>
     );
