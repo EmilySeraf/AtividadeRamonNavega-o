@@ -55,6 +55,12 @@ const TelaInicial = () => {
                         style={styles.image}
                     />
                 </Link>
+                <Link href="./IFome">
+                    <Image
+                        source={require('./../assets/images/incial/9.png')}
+                        style={styles.image}
+                    />
+                </Link>
             </View>
         </View>
     );
