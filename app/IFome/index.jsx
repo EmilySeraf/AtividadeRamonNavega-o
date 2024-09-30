@@ -1,34 +1,32 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, FlatList } from 'react-native';
 import { Link } from 'expo-router';
-
-const CarrinhoContext = React.createContext();
+import { CarrinhoContext, CarrinhoProvider } from '../../scripts/CarrinhoContext';
 
 const IFome = () => {
     const produtos = [
         {
             id: '1',
-            nome: 'Big Mac',
+            nome: 'Big Mac Combo',
             descricao: 'McDonalds | Kobrasol',
             preco: 'R$ 32,50',
             imagem: require('../../assets/images/IFome/BigMac.png'), 
         },
         {
             id: '2',
-            nome: 'Coxinha do Jefferson',
-            descricao: 'Jeff’s Lanchonete',
-            preco: 'R$ 4,50',
-            imagem: require('../../assets/images/IFome/Coxinha.png'), 
+            nome: 'China Bowl Carne com Legumes',
+            descricao: 'China in Box | Kobrasol',
+            preco: 'R$ 34,70',
+            imagem: require('../../assets/images/IFome/China.png'), 
         },
         {
             id: '3',
-            nome: 'Hot Dog do Paulão',
-            descricao: 'Paulão Hot Dog',
-            preco: 'R$ 14,20',
-            imagem: require('../../assets/images/IFome/HotDog.png'),
+            nome: 'Hot Dog',
+            descricao: 'HOT DOG DU PIRU | Campinas',
+            preco: 'R$ 23,00',
+            imagem: require('../../assets/images/IFome/Cachorro.jpeg'),
         },
     ];
-
 
     const { itensCarrinho, adicionarAoCarrinho } = useContext(CarrinhoContext);
 
@@ -54,12 +52,12 @@ const IFome = () => {
             <View style={styles.cabecalho}>
                 <Text style={styles.title}>iFome</Text>
                 <View style={styles.carrinho}>
-                    <Link href="/Carrinho">
-                    <Image
-                        source={require('../../assets/images/IFome/Carrinho.png')} 
-                        style={styles.image}
-                    />
-                    <Text style={styles.textCarrinho}>{itensCarrinho.length} itens</Text>
+                    <Link href="/IFome/Carrinho">
+                        <Image
+                            source={require('../../assets/images/IFome/Carrinho.png')} 
+                            style={styles.image}
+                        />
+                        <Text style={styles.textCarrinho}>{itensCarrinho.length} itens</Text>
                     </Link>
                 </View>
             </View>
@@ -71,20 +69,6 @@ const IFome = () => {
                 contentContainerStyle={styles.listaProdutos}
             />
         </View>
-    );
-};
-
-const CarrinhoProvider = ({ children }) => {
-    const [itensCarrinho, setItensCarrinho] = useState([]);
-
-    const adicionarAoCarrinho = (produto) => {
-        setItensCarrinho([...itensCarrinho, produto]);
-    };
-
-    return (
-        <CarrinhoContext.Provider value={{ itensCarrinho, adicionarAoCarrinho }}>
-            {children}
-        </CarrinhoContext.Provider>
     );
 };
 
@@ -166,8 +150,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default () => (
-    <CarrinhoProvider>
-        <IFome />
-    </CarrinhoProvider>
-);
+export default IFome;
