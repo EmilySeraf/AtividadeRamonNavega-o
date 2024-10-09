@@ -61,6 +61,15 @@ const TelaInicial = () => {
                         style={styles.image}
                     />
                 </Link>
+                <Link href="./galeria">
+                    <Image
+                        source={require('./../assets/images/incial/10.png')}
+                        style={styles.image}
+                    />
+                </Link>
+                <Link href="./camera">
+                    <Text style={styles.texto}>camera</Text>
+                </Link>
             </View>
         </View>
     );
